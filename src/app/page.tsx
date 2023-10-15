@@ -1,113 +1,316 @@
-import Image from 'next/image'
+"use client";
+import { Selector } from "@/components/selector";
+import { Symbol } from "@/components/symbol";
+import { useState } from "react";
+
+export type Phonetic = "BOPOMOFO" | "IPA" | "PINYIN";
 
 export default function Home() {
+  const [phonetic, setPhonetic] = useState<Phonetic>("BOPOMOFO");
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <div className="min-h-screen flex flex-col antialiased">
+      <main className="flex-1 flex items-center">
+        <div className="max-w-5xl mx-auto w-full px-2">
+          <div className="flex justify-center pb-32">
+            <div className="flex gap-1 sm:gap-2">
+              <Selector
+                name="Bopomofo"
+                phonetic="BOPOMOFO"
+                setPhonetic={setPhonetic}
+                currentSelected={phonetic}
+                position="FIRST"
+              />
+              <Selector
+                name="IPA"
+                phonetic="IPA"
+                setPhonetic={setPhonetic}
+                currentSelected={phonetic}
+                position={undefined}
+              />
+              <Selector
+                name="Pinyin"
+                phonetic="PINYIN"
+                setPhonetic={setPhonetic}
+                currentSelected={phonetic}
+                position="LAST"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-10 gap-1 sm:gap-2">
+            <Symbol
+              bopomofo="ㄅ"
+              IPA="p"
+              pynyin="b"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/01.mp3"
+              phonetic={phonetic}
             />
-          </a>
+            <Symbol
+              bopomofo="ㄉ"
+              IPA="t"
+              pynyin="d"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/05.mp3"
+              phonetic={phonetic}
+            />
+            <div></div>
+            <div></div>
+            <Symbol
+              bopomofo="ㄓ"
+              IPA="ʈʂ"
+              pynyin="zhi, zh-"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/15.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄦ"
+              IPA="aɚ"
+              pynyin="er"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/34.mp3"
+              phonetic={phonetic}
+            />
+            <div></div>
+            <Symbol
+              bopomofo="ㄚ"
+              IPA="a"
+              pynyin="a"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/22.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄞ"
+              IPA="ai"
+              pynyin="ai"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/26.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄢ"
+              IPA="p"
+              pynyin="b"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/30.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄆ"
+              IPA="pʰ"
+              pynyin="p"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/02.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄊ"
+              IPA="tʰ"
+              pynyin="t"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/06.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄍ"
+              IPA="k"
+              pynyin="g"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/09.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄐ"
+              IPA="tɕ"
+              pynyin="j"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/12.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄔ"
+              IPA="ʈʂʰ"
+              pynyin="chi, ch-"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/16.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄗ"
+              IPA="ts"
+              pynyin="zi, z-"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/19.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄧ"
+              IPA="i"
+              pynyin="yi, -i"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/35.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄛ"
+              IPA="o"
+              pynyin="o"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/23.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄟ"
+              IPA="ei"
+              pynyin="ei"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/27.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄣ"
+              IPA="ən"
+              pynyin="en"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/31.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄇ"
+              IPA="m"
+              pynyin="m"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/03.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄋ"
+              IPA="n"
+              pynyin="n"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/07.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄎ"
+              IPA="kʰ"
+              pynyin="k"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/10.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄑ"
+              IPA="tɕʰ"
+              pynyin="q"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/13.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄕ"
+              IPA="ʂ"
+              pynyin="shi, sh-"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/17.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄘ"
+              IPA="tsʰ"
+              pynyin="ci, c-"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/20.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄨ"
+              IPA="u"
+              pynyin="w, wu, -u"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/36.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄜ"
+              IPA="ɤ"
+              pynyin="e"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/24.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄠ"
+              IPA="au"
+              pynyin="ao"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/28.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄤ"
+              IPA="aŋ"
+              pynyin="ang"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/32.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄈ"
+              IPA="f"
+              pynyin="f"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/04.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄌ"
+              IPA="l"
+              pynyin="l"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/08.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄏ"
+              IPA="x"
+              pynyin="h"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/11.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄒ"
+              IPA="ɕ"
+              pynyin="x"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/14.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄖ"
+              IPA="ɻ~ʐ"
+              pynyin="ri, r-"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/18.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄙ"
+              IPA="s"
+              pynyin="si, s-"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/21.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄩ"
+              IPA="y"
+              pynyin="yu, -ü"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/37.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄝ"
+              IPA="e"
+              pynyin="-ie/ê"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/25.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄡ"
+              IPA="ou"
+              pynyin="ou"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/29.mp3"
+              phonetic={phonetic}
+            />
+            <Symbol
+              bopomofo="ㄥ"
+              IPA="əŋ"
+              pynyin="eng"
+              audioUrl="https://www.mdnkids.com/BoPoMo/audio/33.mp3"
+              phonetic={phonetic}
+            />
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </main>
+      <footer className="py-4">
+        <p className="text-center text-sm text-amber-950">
+          Made by{" "}
+          <a href="https://www.austinshelby.com" target="_blank">
+            Austin Shelby
+          </a>
+        </p>
+      </footer>
+    </div>
+  );
 }
