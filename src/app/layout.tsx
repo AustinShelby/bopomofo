@@ -5,6 +5,7 @@ import { Inter, Noto_Sans_TC } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 const notoSansTC = Noto_Sans_TC({
   subsets: ["latin", "latin-ext", "cyrillic"],
+  preload: true,
 });
 
 export const metadata: Metadata = {
