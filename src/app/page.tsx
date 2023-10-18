@@ -85,8 +85,8 @@ export default function Home() {
             />
             <Symbol
               bopomofo="ㄢ"
-              IPA="p"
-              pynyin="b"
+              IPA="an"
+              pynyin="an"
               audioUrl="/audio/30.mp3"
               phonetic={phonetic}
             />
